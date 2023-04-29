@@ -1,3 +1,9 @@
+const tableEl = document.querySelector("table");
+const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.querySelector(".next-btn");
+const pages = document.querySelector(".pages")
+
+
 function generateData(numRows) {
     const data = [];
     const columns = [
@@ -23,12 +29,27 @@ function generateData(numRows) {
     //   console.log(numRows)
     return data;
 }
-const tableEl = document.querySelector(".table")
 const data = generateData(2000);
-
-function generateTable() {
+const head = `<tr class="thead">
+<th>ID</th>
+<th>firstName</th>
+<th>lastName</th>
+<th>email</th>
+<th>phone</th>
+<th>address</th>
+<th>city</th>
+<th>state</th>
+<th>country</th>
+<th>zipCode</th>
+</tr> `
+let page = 132
+const maxPage = Math.ceil(data.length / 15)
+function generateTable(pageN) {
     let tbody;
-    for (i = 0; i < data.length; i++) {
+    for (i = (page - 1) * 15; i < 15 * page; i++) {
+        if(data[i]===undefined){
+            break
+        }
         tbody += `<tr>
                     <td>${data[i].id}</td>
                     <td>${data[i].firstName}</td>
@@ -41,8 +62,33 @@ function generateTable() {
                     <td>${data[i].country}</td>
                     <td>${data[i].zipCode}</td>
                 </tr>`
+                console.log(data[i])
+
     }
     return tbody
 }
-// table.innerHTML = table + generateTable()
-console.log(tableEl.innerHTML  ) // you need to show this data in data-table with all the features
+tableEl.innerHTML = head + generateTable(page)
+pages.innerHTML = `Page ${page} of ${maxPage}`
+
+nextBtn.addEventListener("click", () => {
+    page++
+    if (page > 1) {
+        prevBtn.classList.remove("hide")
+    }
+    if(page>=maxPage){
+        nextBtn.classList.add("hide")
+    }
+    tableEl.innerHTML = head + generateTable(page)
+    pages.innerHTML = `Page ${page} of ${maxPage}`
+})
+prevBtn.addEventListener("click", () => {
+    page--
+    if (page <= 1) {
+        prevBtn.classList.add("hide")
+    }
+    if(page<maxPage){
+        nextBtn.classList.remove("hide")
+    }
+    tableEl.innerHTML = head + generateTable(page)
+    pages.innerHTML = `Page ${page} of ${maxPage}`
+})
