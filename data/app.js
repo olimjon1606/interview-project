@@ -23,8 +23,26 @@ function generateData(numRows) {
     //   console.log(numRows)
     return data;
 }
-
+const tableEl = document.querySelector(".table")
 const data = generateData(2000);
 
-F
-console.log(data) // you need to show this data in data-table with all the features
+function generateTable() {
+    let tbody;
+    for (i = 0; i < data.length; i++) {
+        tbody += `<tr>
+                    <td>${data[i].id}</td>
+                    <td>${data[i].firstName}</td>
+                    <td>${data[i].lastName}</td>
+                    <td>${data[i].email}</td>
+                    <td>${data[i].phone}</td>
+                    <td>${data[i].address}</td>
+                    <td>${data[i].city}</td>
+                    <td>${data[i].state}</td>
+                    <td>${data[i].country}</td>
+                    <td>${data[i].zipCode}</td>
+                </tr>`
+    }
+    return tbody
+}
+// table.innerHTML = table + generateTable()
+console.log(tableEl.innerHTML  ) // you need to show this data in data-table with all the features
