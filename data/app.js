@@ -42,7 +42,7 @@ const head = `<tr class="thead">
 <th>country</th>
 <th>zipCode</th>
 </tr> `
-let page = 132
+let page = 1
 const maxPage = Math.ceil(data.length / 15)
 function generateTable(pageN) {
     let tbody;
@@ -62,12 +62,13 @@ function generateTable(pageN) {
                     <td>${data[i].country}</td>
                     <td>${data[i].zipCode}</td>
                 </tr>`
-                console.log(data[i])
 
     }
     return tbody
 }
 tableEl.innerHTML = head + generateTable(page)
+// console.log(head + generateTable(page))
+
 pages.innerHTML = `Page ${page} of ${maxPage}`
 
 nextBtn.addEventListener("click", () => {
@@ -92,3 +93,5 @@ prevBtn.addEventListener("click", () => {
     tableEl.innerHTML = head + generateTable(page)
     pages.innerHTML = `Page ${page} of ${maxPage}`
 })
+tableEl.lastChild.remove()
+console.log(tableEl.lastChild)
