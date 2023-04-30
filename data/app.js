@@ -101,15 +101,15 @@ prevBtn.addEventListener("click", () => {
 tableEl.lastChild.remove()
 
 // console.log(data[0])
-function inputValueSearch() {
-    let dataafter
-    value = inputEl.value.toUpperCase()
-    let tr = tableEl.getElementsByTagName("tr")
-    for (i = 0; i < data.length; i++) {
-        if (data[i].indexOf(value) > -1) {
-            dataafter.push(data[i])
-        }
-    }
+// function inputValueSearch() {
+//     let dataafter
+//     value = inputEl.value.toUpperCase()
+//     let tr = tableEl.getElementsByTagName("tr")
+//     for (i = 0; i < data.length; i++) {
+//         if (data[i].indexOf(value) > -1) {
+//             dataafter.push(data[i])
+//         }
+//     }
 
-    console.log(dataafter)
-}
+//     console.log(dataafter)
+// }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="select" id="select-id">
+            <div class="select-header">
+                <span class="choise"></span>
+                <button type="button" class="drop-icon"><i class="fa-solid fa-caret-down "></i></button>
+            </div>
+            <div class="choise-list hide">
+                <button id="none" class="none" type="button"></button>
+                <input type="checkbox" class="input-check" id="vehicle1" name="vehicle1" value="Abarth">
+                <label for="vehicle1">Abarth</label><br>
+                <input type="checkbox" class="input-check" id="vehicle2" name="vehicle2" value="Alfa Romeo">
+                <label for="vehicle2">Alfa Romeo</label><br>
+                <input type="checkbox" class="input-check" id="vehicle3" name="vehicle3" value="Alpine">
+                <label for="vehicle3">Alpine</label><br>
+                <input type="checkbox" class="input-check" id="vehicle4" name="vehicle4" value="Aston Martin">
+                <label for="vehicle4">Aston Martin</label><br>
+                <input type="checkbox" class="input-check" id="vehicle5" name="vehicle5" value="Audi">
+                <label for="vehicle5">Audi</label><br>
+                <input type="checkbox" class="input-check" id="vehicle6" name="vehicle6" value="Bentley">
+                <label for="vehicle6">Bentley</label><br>
+                <input type="checkbox" class="input-check" id="vehicle7" name="vehicle7" value="BMW">
+                <label for="vehicle7">BMW</label><br>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="btn" value="empty">empty()</button>
+            <button class="btn" value="setValue">setValue(Lamborghini,Land Rover)</button>
+            <button class="btn" value="setValueAll">setValue(All)</button>
+            <button class="btn" value="disable">disable()</button>
+            <button class="btn" value="enable">enable()</button>
+            <button class="btn" value="destroy">destroy()</button>
+            <button class="btn" value="getSelectValues">getSelectValues</button>
+            <p class="list-p"></p>
+        </div>
+        <button class="btn last-btn hide" value="vanillaSelectBox">vanillaSelectBox()</button>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
