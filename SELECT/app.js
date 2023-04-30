@@ -8,7 +8,7 @@ const btns = document.querySelectorAll(".btn")
 const btnContainer = document.querySelector(".btn-container")
 const lastBtn = document.querySelector(".last-btn")
 const listPEl = document.querySelector(".list-p")
-let stringEl = ["TOYOTA", "Bmw", "Abarth", "Alfa Romeo", "Alpine", "Land Rover", "Aston Martin", "Audi", "Lamborghini", "Cadillac", "Ford", "Chevrolet", "Tesla", "Honda", "Volkswagen", "Mercedes", "Benz", "Jeep", "Porsche", "Peugeot", "Hyundai", "Aston"]
+let stringEl = ["TOYOTA", "BMW", "Abarth", "Bentley", "Alfa Romeo", "Alpine", "Land Rover", "Aston Martin", "Audi", "Lamborghini", "Cadillac", "Ford", "Chevrolet", "Tesla", "Honda", "Volkswagen", "Mercedes", "Benz", "Jeep", "Porsche", "Peugeot", "Hyundai", "Aston"]
 
 dropIcon.addEventListener("click", () => {
     choiceList.classList.toggle("hide")
@@ -26,7 +26,7 @@ inputCheck.forEach(function (check) {
             checkedData.pop(check.value)
         }
         choiceElSet(checkedData)
-        console.log(checkedData)
+        // console.log(checkedData)
     })
 })
 function choiceElSet(data) {
@@ -47,6 +47,10 @@ noneBtn.addEventListener("click", () => {
 
 btns.forEach(function (btn) {
     btn.addEventListener("click", () => {
+        if (!choiceList.classList.contains("hide")) {
+            choiceList.classList.add("hide")
+        }
+
         if (btn.value === "empty") {
             empty()
         } else if (btn.value === "setValue") {
@@ -77,7 +81,10 @@ function empty() {
             check.checked = false
         }
         choiceEl.textContent = ""
+
     })
+    itemCounter = 0
+    checkedData = []
 }
 let checkedData2 = []
 function setValue() {
@@ -122,6 +129,9 @@ function getSelectValues() {
     console.log(checkedData2)
     if (choiceEl.textContent === "All") {
         listPEl.textContent = stringEl.join()
+    }
+    else if (choiceEl.textContent === null) {
+        choiceEl.textContent = ''
     } else if (counter === 0) {
         listPEl.textContent = search(checkedData2)
     } else {
