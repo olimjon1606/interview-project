@@ -2,6 +2,7 @@ const tableEl = document.querySelector("table");
 const prevBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
 const pages = document.querySelector(".pages")
+const inputEl = document.querySelector(".input");
 
 
 function generateData(numRows) {
@@ -44,10 +45,10 @@ const head = `<tr class="thead">
 </tr> `
 let page = 1
 const maxPage = Math.ceil(data.length / 15)
-function generateTable(pageN) {
+function generateTable(pageN, data) {
     let tbody;
     for (i = (page - 1) * 15; i < 15 * page; i++) {
-        if(data[i]===undefined){
+        if (data[i] === undefined) {
             break
         }
         tbody += `<tr>
@@ -64,9 +65,10 @@ function generateTable(pageN) {
                 </tr>`
 
     }
+
     return tbody
 }
-tableEl.innerHTML = head + generateTable(page)
+tableEl.innerHTML = head + generateTable(page, data)
 // console.log(head + generateTable(page))
 
 pages.innerHTML = `Page ${page} of ${maxPage}`
@@ -76,22 +78,38 @@ nextBtn.addEventListener("click", () => {
     if (page > 1) {
         prevBtn.classList.remove("hide")
     }
-    if(page>=maxPage){
+    if (page >= maxPage) {
         nextBtn.classList.add("hide")
     }
-    tableEl.innerHTML = head + generateTable(page)
+    tableEl.innerHTML = head + generateTable(page, data)
     pages.innerHTML = `Page ${page} of ${maxPage}`
+    tableEl.lastChild.remove()
 })
 prevBtn.addEventListener("click", () => {
     page--
     if (page <= 1) {
         prevBtn.classList.add("hide")
     }
-    if(page<maxPage){
+    if (page < maxPage) {
         nextBtn.classList.remove("hide")
     }
-    tableEl.innerHTML = head + generateTable(page)
+    tableEl.innerHTML = head + generateTable(page, data)
     pages.innerHTML = `Page ${page} of ${maxPage}`
+    tableEl.lastChild.remove()
+
 })
 tableEl.lastChild.remove()
-console.log(tableEl.lastChild)
+
+// console.log(data[0])
+function inputValueSearch() {
+    let dataafter
+    value = inputEl.value.toUpperCase()
+    let tr = tableEl.getElementsByTagName("tr")
+    for (i = 0; i < data.length; i++) {
+        if (data[i].indexOf(value) > -1) {
+            dataafter.push(data[i])
+        }
+    }
+
+    console.log(dataafter)
+}
