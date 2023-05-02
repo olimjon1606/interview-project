@@ -9,7 +9,6 @@ const btnContainer = document.querySelector(".btn-container")
 const lastBtn = document.querySelector(".last-btn")
 const listPEl = document.querySelector(".list-p")
 let stringEl = ["TOYOTA", "BMW", "Abarth", "Bentley", "Alfa Romeo", "Alpine", "Land Rover", "Aston Martin", "Audi", "Lamborghini", "Cadillac", "Ford", "Chevrolet", "Tesla", "Honda", "Volkswagen", "Mercedes", "Benz", "Jeep", "Porsche", "Peugeot", "Hyundai", "Aston"]
-
 dropIcon.addEventListener("click", () => {
     choiceList.classList.toggle("hide")
 })
