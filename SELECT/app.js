@@ -50,7 +50,6 @@ btns.forEach(function (btn) {
         if (!choiceList.classList.contains("hide")) {
             choiceList.classList.add("hide")
         }
-
         if (btn.value === "empty") {
             empty()
         } else if (btn.value === "setValue") {
@@ -152,11 +151,3 @@ function search(data) {
     }
     return afterSearch.join();
 }
-
-// window.addEventListener("click", () => {
-//     if (!choiceList.classList.contains("hide")) {
-//         choiceList.classList.add("hide")
-//     }
-// })
-// console.log(getSelectValues())
-// console.log(choiceEl.textContent)
